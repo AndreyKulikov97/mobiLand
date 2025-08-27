@@ -1,0 +1,11 @@
+.product-card-wrapper {
+  max-width: 900px;
+  width: 900px;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 758px) {
+  .product-card-wrapper {
+    flex-direction: column;
+  }
+}

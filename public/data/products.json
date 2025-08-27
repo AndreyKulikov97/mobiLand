@@ -1,0 +1,258 @@
+[
+	{
+		"id": 1,
+		"name": "Poco X6 Pro",
+		"brand": "Xiaomi",
+		"year": 2024,
+		"price": 12699,
+		"image": "/assets/products/poco_x6_pro.jpg",
+		"isAvailable": true,
+		"rating": 4.7,
+		"colors": ["черный", "желтый"],
+		"screen": {
+			"size": "6.67",
+			"type": "AMOLED",
+			"resolution": "2712x1220",
+			"ppi": 446,
+			"refreshRate": "120 Гц"
+		},
+		"camera": {
+			"modules": 3,
+			"megapixels": ["64 МП", "8 МП", "macro"],
+			"features": ["4K", "Full HD 60 к/c", "стабилизация"]
+		},
+		"memory": "512 ГБ",
+		"ram": "12 ГБ",
+		"processor": "Dimensity 8300 Ultra",
+		"battery": "5000 мАч",
+		"body": {
+			"material": "пластик",
+			"weight": "186 г",
+			"thickness": "8 мм"
+		}
+	},
+	{
+		"id": 2,
+		"name": "Apple iPhone 16 Pro Max",
+		"brand": "Apple",
+		"year": 2024,
+		"price": 55300,
+		"image": "/assets/products/apple_16_pro_max.jpg",
+		"isAvailable": true,
+		"rating": 4.8,
+		"colors": ["черный", "белый"],
+		"screen": {
+			"size": "6.9",
+			"type": "OLED (LTPO)",
+			"resolution": "2868x1320",
+			"ppi": 458,
+			"refreshRate": "120 Гц"
+		},
+		"camera": {
+			"modules": 3,
+			"megapixels": ["48 МП", "48 МП", "12 МП"],
+			"features": ["4K", "стабилизация", "замедленная съемка"]
+		},
+		"memory": "256 ГБ",
+		"ram": "8 ГБ",
+		"processor": "Apple A18 Pro",
+		"battery": "4685 мАч",
+		"body": {
+			"material": "стекло",
+			"weight": "227 г",
+			"thickness": "8 мм"
+		}
+	},
+	{
+		"id": 3,
+		"name": "Samsung Galaxy S24",
+		"brand": "Samsung",
+		"year": 2024,
+		"price": 32499,
+		"image": "/assets/products/samsung_s24.jpg",
+		"isAvailable": true,
+		"rating": 4.7,
+		"colors": ["черный", "серебристый"],
+		"screen": {
+			"size": "6.2",
+			"type": "AMOLED",
+			"resolution": "2340x1080",
+			"ppi": 416,
+			"refreshRate": "120 Гц"
+		},
+		"camera": {
+			"modules": 3,
+			"megapixels": ["50 МП", "12 МП", "10 МП"],
+			"features": ["4K", "стабилизация", "замедленная съемка"]
+		},
+		"memory": "256 ГБ",
+		"ram": "8 ГБ",
+		"processor": "Exynos 2400",
+		"battery": "4000 мАч",
+		"body": {
+			"material": "стекло",
+			"weight": "167 г",
+			"thickness": "8 мм"
+		}
+	},
+	{
+		"id": 4,
+		"name": "Samsung Galaxy A55",
+		"brand": "Samsung",
+		"year": 2024,
+		"price": 14787,
+		"image": "/assets/products/samsung_a55.jpg",
+		"isAvailable": true,
+		"rating": 4.8,
+		"colors": ["черный", "белый", "голубой"],
+		"screen": {
+			"size": "6.6",
+			"type": "Super AMOLED",
+			"resolution": "2340x1080",
+			"ppi": 390,
+			"refreshRate": "120 Гц"
+		},
+		"camera": {
+			"modules": 3,
+			"megapixels": ["50 МП", "12 МП", "macro"],
+			"features": ["4K", "Full HD 60 к/с", "стабилизация", "замедленная съемка"]
+		},
+		"memory": "256 ГБ",
+		"ram": "8 ГБ",
+		"processor": "Exynos 1480",
+		"battery": "5000 мАч",
+		"body": {
+			"material": "стекло",
+			"weight": "213 г",
+			"thickness": "8 мм"
+		}
+	},
+	{
+		"id": 5,
+		"name": "Redmi Note 14",
+		"brand": "Xiaomi",
+		"year": 2025,
+		"price": 8699,
+		"image": "/assets/products/redmi_note_14.jpg",
+		"isAvailable": true,
+		"rating": 4.8,
+		"colors": ["голубой", "серебристый"],
+		"screen": {
+			"size": "6.67",
+			"type": "AMOLED",
+			"resolution": "2400x1080",
+			"ppi": 395,
+			"refreshRate": "120 Гц"
+		},
+		"camera": {
+			"modules": 3,
+			"megapixels": ["108 МП", "50 МП", "macro"],
+			"features": ["Full HD 60 к/с", "стабилизация", "замедленная съемка"]
+		},
+		"memory": "128 ГБ",
+		"ram": "6 ГБ",
+		"processor": "Helio G99-Ultra",
+		"battery": "5500 мАч",
+		"body": {
+			"material": "пластик",
+			"weight": "197 г",
+			"thickness": "8.16 мм"
+		}
+	},
+	{
+		"id": 6,
+		"name": "OnePlus 13",
+		"brand": "OnePlus",
+		"year": 2024,
+		"price": 38500,
+		"image": "/assets/products/one_plus13.jpg",
+		"isAvailable": true,
+		"rating": 4.8,
+		"colors": ["черный", "белый"],
+		"screen": {
+			"size": "6.82",
+			"type": "AMOLED (LTPO)",
+			"resolution": "3168x1440",
+			"ppi": 510,
+			"refreshRate": "120 Гц"
+		},
+		"camera": {
+			"modules": 3,
+			"megapixels": ["50 МП", "50 МП", "50 МП"],
+			"features": ["4K", "стабилизация", "замедленная съемка"]
+		},
+		"memory": "256 ГБ",
+		"ram": "12 ГБ",
+		"processor": "Snapdragon 8 Elite",
+		"battery": "6000 мАч",
+		"body": {
+			"material": "стекло",
+			"weight": "213 г",
+			"thickness": "8.5 мм"
+		}
+	},
+	{
+		"id": 7,
+		"name": "Poco X7 Pro",
+		"brand": "Xiaomi",
+		"year": 2025,
+		"price": 15699,
+		"image": "/assets/products/poco_x7_pro.jpg",
+		"isAvailable": true,
+		"rating": 4.5,
+		"colors": ["черный", "оранжевый"],
+		"screen": {
+			"size": "6.67",
+			"type": "AMOLED",
+			"resolution": "2712x1220",
+			"ppi": 446,
+			"refreshRate": "120 Гц"
+		},
+		"camera": {
+			"modules": 2,
+			"megapixels": ["50 МП", "8 МП"],
+			"features": ["4K", "замедленная съемка"]
+		},
+		"memory": "256 ГБ",
+		"ram": "8 ГБ",
+		"processor": "Dimensity 8400-Ultra",
+		"battery": "6000 мАч",
+		"body": {
+			"material": "пластик",
+			"weight": "195 г",
+			"thickness": "8.29 мм"
+		}
+	},
+	{
+		"id": 8,
+		"name": "iPhone 15 Pro Max",
+		"brand": "Apple",
+		"year": 2023,
+		"price": 59999,
+		"image": "/assets/products/apple_15_pro_max.jpg",
+		"isAvailable": true,
+		"rating": 4.9,
+		"colors": ["серый", "синий"],
+		"screen": {
+			"size": "6.7",
+			"type": "OLED",
+			"resolution": "2796x1290",
+			"ppi": 460,
+			"refreshRate": "120 Гц"
+		},
+		"camera": {
+			"modules": 3,
+			"megapixels": ["48 МП", "12 МП", "12 МП"],
+			"features": ["4K", "стабилизация", "замедленная съемка"]
+		},
+		"memory": "256 ГБ",
+		"ram": "8 ГБ",
+		"processor": "Apple A17 Pro",
+		"battery": "4422 мАч",
+		"body": {
+			"material": "титан",
+			"weight": "221 г",
+			"thickness": "8.25 мм"
+		}
+	}
+]
