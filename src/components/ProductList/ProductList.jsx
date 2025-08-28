@@ -1,23 +1,24 @@
 import React from 'react'
-import ProductCard from '../ProductCard/ProductCard'
 import { useSelector } from 'react-redux'
-import SkeletonPhoneCard from '../Skeletons/SkeletonPhoneCard'
 import './productList.css'
+import LoadProductList from './LoadProductList'
+import ProductListCard from './ProductListCard'
 
 
 function ProductList() {
 
-	const { phones, status } = useSelector(store => store.products)
+	const { phones, status, filteredPhones } = useSelector(store => store.products
+	)
 
   
   return (
 	  <div className='product-card-wrapper'>
 		  {status === 'loading' ? (
-			  [...new Array(8)].map((_, index) => <SkeletonPhoneCard key={index} />)
+				<LoadProductList />
 			) : Array.isArray(phones) ? (
-				phones.map(item => <ProductCard key={item.id} product={item} />)
+				<ProductListCard phones={{phones, filteredPhones}} />
 			) : (
-				<p>Ошибка: product не массив</p>
+				<p>Ошибка: в ближайшее время исправим</p>
 			)
 		  }
 			

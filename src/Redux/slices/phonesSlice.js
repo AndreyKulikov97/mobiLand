@@ -16,7 +16,8 @@ const initialState = {
 		phone: null,
 		status: 'loadong',
 		error: null
-	}
+	},
+	filteredPhones: []
 }
 
 export const fetchPhones = createAsyncThunk('phone/fetchphones', async () => {
@@ -67,6 +68,10 @@ const phonesSlice = createSlice({
 			state.characteristics.phone = searchMainInfoPhones
 			state.characteristics.status = 'fulfilled'
 
+		},
+		filterPhones: (state, action) => {
+			const searchTerm = action.payload.toLowerCase();
+			state.filteredPhones = state.phones.filter(phone => phone.name.toLowerCase().includes(searchTerm))
 		}
 	},
 	extraReducers: builder => {
@@ -111,4 +116,4 @@ const phonesSlice = createSlice({
 })
 
 export default phonesSlice.reducer
-export const { searchPhoneInState, searchCharacteristics } = phonesSlice.actions
+export const { searchPhoneInState, searchCharacteristics, filterPhones } = phonesSlice.actions

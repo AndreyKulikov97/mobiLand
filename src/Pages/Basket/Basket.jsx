@@ -11,7 +11,6 @@ function Basket() {
 	const dispatch = useDispatch()
 
 	const { basketPhone } = useSelector(store => store.basket)
-	console.log(basketPhone)
 
 	const negative = useNavigate()
 
