@@ -3,7 +3,6 @@ import ArrowLeft from '../../assets/icons/icons8-назад-48.png'
 import './basket.css'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-
 import BasketList from '../../components/BasketList/BasketList'
 import { delAllBasketPhone } from '../../Redux/slices/basketSlice'
 
@@ -13,7 +12,7 @@ function Basket() {
 	const { basketPhone } = useSelector(store => store.basket)
 
 	const negative = useNavigate()
-
+ 
 	const handleGoBack = () => {
 		negative(-1)
 	}

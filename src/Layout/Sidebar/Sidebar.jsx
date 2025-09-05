@@ -1,30 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './sidebar.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleBrands } from '../../Redux/slices/phonesSlice'
 
 function Sidebar() {
+	const dispatch = useDispatch()
+	const [isChecked, setIschecked] = useState(false)
+	const { filteredBrand, selectedBrands } = useSelector(store => store.products);
+	
+	
+	const handleChenge = (e) => {
+		setIschecked(e.target.checked)
+		dispatch(toggleBrands(e.target.value))
+
+	}
+	
+
   return (
 		<aside className='sidebar'>
 			<h3 className='sidebar__title'>Фильтр</h3>
 
 			<div className='sidebar__section'>
-				<h4>Бренд</h4>
-
-				<label>
-					<input type='checkbox' id='apple' />
-					Apple
-				</label>
-				<label>
-					<input type='checkbox' id='samsung' />
-					Samsung
-				</label>
-				<label>
-					<input type='checkbox' id='xiaomi' />
-					Xiaomi
-				</label>
-				<label>
-					<input type='checkbox' id='realme' />
-					Realme
-				</label>
+			  <h4>Бренд</h4>
+			  
+			  {filteredBrand.map((item) => (
+				  <label key={item}>
+					  <input type='checkbox' value={item} checked={selectedBrands.some(phone => phone.brand === item)} onChange={handleChenge}/>
+					  {item}
+					</label>
+				))}
 			</div>
 
 			<div className='sidebar__section'>
@@ -50,7 +54,7 @@ function Sidebar() {
 
 			<div className='sidebar__section'>
 				<h4>Память</h4>
-				
+
 				<label>
 					<input type='checkbox' id='64gb' />
 					64 ГБ

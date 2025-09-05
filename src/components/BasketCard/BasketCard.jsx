@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 export default function BasketCard(props) {
 	const info = props.phone
-
+	
 	const dispatch = useDispatch()
 	const [quant, setQuant] = useState(1)
 
@@ -26,7 +26,7 @@ export default function BasketCard(props) {
 
 	return (
 		<div className='basket-item'>
-			<Link to={`/phone/${props.phone.id}`} style={{ textDecoration: 'none' }}>
+			<Link to={`/phone/${info.id}`} style={{ textDecoration: 'none' }}>
 				<img src={info.images[0]} alt='Image.Phone' className='basket-img' />
 			</Link>
 
@@ -40,7 +40,7 @@ export default function BasketCard(props) {
 
 				<p className='basket-code'>Код товара: {info.productCode}</p>
 				<div className='basket-actions'>
-					<span onClick={() => dispatch(removeBasketPhone(props.phone))}>
+					<span onClick={() => dispatch(removeBasketPhone(info))}>
 						🗑 Видалити
 					</span>
 				</div>

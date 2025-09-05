@@ -1,8 +1,11 @@
 import React from 'react'
 import './productCard.css'
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addBasketPhone } from '../../Redux/slices/basketSlice';
 
 function ProductCard(props) {
+	const dispatch = useDispatch()
 	
   	let products = props.product;
 	let screen = props.product.screen;
@@ -57,7 +60,7 @@ function ProductCard(props) {
 						</ul>
 					</div>
 
-					<button className='product-card__btn'>🛒 Купить</button>
+					
 				</div>
 			</div>
 		</Link>
