@@ -4,13 +4,13 @@ const ProductListCard = ({ phones }) => {
 	let phoneToShow = []
 
 	if (phones.filteredPhones.length > 0) {
-		// 🔎 приоритет поиска
+		// поиск
 		phoneToShow = phones.filteredPhones
 	} else if (phones.filteredByFilters.length > 0) {
-		// ✅ готовый результат по всем фильтрам
+		// результат по всем фильтрам
 		phoneToShow = phones.filteredByFilters
 	} else {
-		// 🔄 fallback — все товары
+		// все товары
 		phoneToShow = phones.phones
 	}
 
