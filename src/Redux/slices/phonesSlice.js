@@ -15,11 +15,25 @@ const initialState = {
 	characteristics: {
 		phone: null,
 		status: 'loadong',
-		error: null
+		error: null,
 	},
 	filteredPhones: [],
 	filteredBrand: [],
-	selectedBrands: []
+	selectedBrands: [],
+	filteredScreenType: [],
+	selectedScreenType: [],
+	filteredByFilters: [],
+	filteredMemory: [],
+	selectedMemory: []
+}
+
+function applyAllFilters(state) {
+	state.filteredByFilters = state.phones.filter(phone => {
+		const byBrand = state.selectedBrands.length === 0 || state.selectedBrands.includes(phone.brand)
+		const byScreen = state.selectedScreenType.length === 0 || state.selectedScreenType.includes(phone.screen.type)
+		const byMemory = state.selectedMemory.length === 0 || state.selectedMemory.includes(phone.memory)
+		return byBrand && byScreen && byMemory;
+	})
 }
 
 export const fetchPhones = createAsyncThunk('phone/fetchphones', async () => {
@@ -83,28 +97,33 @@ const phonesSlice = createSlice({
 		},
 		toggleBrands: (state, action) => {
 			const brand = action.payload;
-			//товар с этим брэндом
-			const phonesByBrand = state.phones.filter(item => item.brand === brand);
-			//если уже выбран этот брэнд => снимаем галочку(убираем товары из массива)
-			const isAlreadySelected = state.selectedBrands.some(item => item.brand === brand);
-
-			if (isAlreadySelected) {
-				state.selectedBrands = state.selectedBrands.filter(item => item.brand !== brand)
+			if (state.selectedBrands.includes(brand)) {
+				state.selectedBrands = state.selectedBrands.filter(item => item !== brand)
 			} else {
-				//добавляем товары этого бренда
-				state.selectedBrands = [...state.selectedBrands, ...phonesByBrand]
+				state.selectedBrands.push(brand)
 			}
 
-			state.selectedBrands.sort((a, b) => a.name.localeCompare(b.name))
-			// const brand = state.phones.filter((item, _) => item.brand.includes(action.payload))
-			// state.selectedBrands = brand;
+			applyAllFilters(state)
+		},
+		toggleScreen: (state, action) => {
+			const screenType = action.payload;
+			if (state.selectedScreenType.includes(screenType)) {
+				state.selectedScreenType = state.selectedScreenType.filter(item => item !== screenType)
+			} else {
+				state.selectedScreenType.push(screenType)
+			}
+		
+			applyAllFilters(state)
+		},
+		toggleMemory: (state, action) => {
+			const memory = action.payload;
+			if (state.selectedMemory.includes(memory)) {
+				state.selectedMemory = state.selectedMemory.filter(item => item !== memory)
+			} else {
+				state.selectedMemory.push(memory)
+			}
 
-
-			// if (state.selectedBrands.includes(brand)) {
-			// 	state.selectedBrands = state.selectedBrands.filter(item => item !== brand)
-			// } else {
-			// 	state.selectedBrands.push(brand)
-			// }
+			applyAllFilters(state)
 		}
 	},
 	extraReducers: builder => {
@@ -115,6 +134,8 @@ const phonesSlice = createSlice({
 			.addCase(fetchPhones.fulfilled, (state, action) => {
 				state.phones = action.payload
 				state.filteredBrand = [...new Set(action.payload.map(item => item.brand))]
+				state.filteredScreenType = [...new Set(action.payload.map(item => item.screen.type))]
+				state.filteredMemory = [...new Set(action.payload.map(item => item.memory))]
 				state.status = 'fulfilled'
 			})
 			.addCase(fetchPhones.rejected, (state, action) => {
@@ -150,4 +171,11 @@ const phonesSlice = createSlice({
 })
 
 export default phonesSlice.reducer
-export const { searchPhoneInState, searchCharacteristics, filterPhones, toggleBrands } = phonesSlice.actions;
+export const {
+	searchPhoneInState,
+	searchCharacteristics,
+	filterPhones,
+	toggleBrands,
+	toggleScreen,
+	toggleMemory,
+} = phonesSlice.actions

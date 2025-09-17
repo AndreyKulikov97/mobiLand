@@ -1,32 +1,57 @@
 import React, { useState } from 'react'
 import './sidebar.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleBrands } from '../../Redux/slices/phonesSlice'
+import { toggleBrands, toggleMemory, toggleScreen } from '../../Redux/slices/phonesSlice'
 
 function Sidebar() {
 	const dispatch = useDispatch()
-	const [isChecked, setIschecked] = useState(false)
-	const { filteredBrand, selectedBrands } = useSelector(store => store.products);
+	const [isCheckedBrand, setIscheckedBrand] = useState(false)
+	const [isCheckedMatrix, setIscheckedMatrix] = useState(false)
+	const [isCheckedMemory, setIsCheckedMemory] = useState(false)
+	const {
+		filteredBrand,
+		selectedBrands,
+		filteredScreenType,
+		selectedScreenType,
+		filteredMemory,
+		selectedMemory,
+	} = useSelector(store => store.products)
+
 	
 	
-	const handleChenge = (e) => {
-		setIschecked(e.target.checked)
+
+	const handleChengeBrand = e => {
+		setIscheckedBrand(e.target.checked)
 		dispatch(toggleBrands(e.target.value))
-
 	}
-	
 
-  return (
+	const handleChengeScreenType = e => {
+		setIscheckedMatrix(e.target.checked)
+		dispatch(toggleScreen(e.target.value))
+	}
+
+	const handleChengeMemory = e => {
+		setIsCheckedMemory(e.target.checked)
+		dispatch(toggleMemory(e.target.value))
+	}
+
+	return (
 		<aside className='sidebar'>
 			<h3 className='sidebar__title'>Фильтр</h3>
 
 			<div className='sidebar__section'>
-			  <h4>Бренд</h4>
-			  
-			  {filteredBrand.map((item) => (
-				  <label key={item}>
-					  <input type='checkbox' value={item} checked={selectedBrands.some(phone => phone.brand === item)} onChange={handleChenge}/>
-					  {item}
+				<h4>Бренд</h4>
+
+				{filteredBrand.map(item => (
+					<label key={item}>
+						<input
+							type='checkbox'
+							value={item}
+							// checked={selectedBrands.some(phone => phone.brand === item)}
+							checked={selectedBrands.includes(item)}
+							onChange={handleChengeBrand}
+						/>
+						{item}
 					</label>
 				))}
 			</div>
@@ -34,28 +59,35 @@ function Sidebar() {
 			<div className='sidebar__section'>
 				<h4>Экран</h4>
 
-				<label>
-					<input type='checkbox' id='ips' />
-					IPS
-				</label>
-				<label>
-					<input type='checkbox' id='amoled' />
-					AMOLED
-				</label>
-				<label>
-					<input type='checkbox' id='oled' />
-					OLED
-				</label>
-				<label>
-					<input type='checkbox' id='super-amoled' />
-					Super AMOLED
-				</label>
+				{filteredScreenType.map(item => (
+					<label key={item}>
+						<input
+							type='checkbox'
+							value={item}
+							// checked={selectedScreenType.some(phone => phone.screen.type === item)}
+							checked={selectedScreenType.includes(item)}
+							onChange={handleChengeScreenType}
+						/>
+						{item}
+					</label>
+				))}
 			</div>
 
 			<div className='sidebar__section'>
 				<h4>Память</h4>
 
-				<label>
+				{filteredMemory.map(item => (
+					<label key={item}>
+						<input
+							type='checkbox'
+							value={item}
+							checked={selectedMemory.includes(item)}
+							onChange={handleChengeMemory}
+						/>
+						{item}
+					</label>
+				))}
+				{/* <label>
 					<input type='checkbox' id='64gb' />
 					64 ГБ
 				</label>
@@ -70,7 +102,7 @@ function Sidebar() {
 				<label>
 					<input type='checkbox' id='512gb' />
 					512 ГБ
-				</label>
+				</label> */}
 			</div>
 		</aside>
 	)

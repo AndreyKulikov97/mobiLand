@@ -1,17 +1,31 @@
-import ProductCard from "../ProductCard/ProductCard"
+import ProductCard from '../ProductCard/ProductCard'
 
 const ProductListCard = ({ phones }) => {
-    console.log(phones);
-    
-    // const phoneToShow = phones.filteredPhones.length > 0 ? phones.filteredPhones : phones.phones
-    let phoneToShow = [];
-    if (phones.filteredPhones.length > 0) {
-        phoneToShow = phones.filteredPhones
-    } else if (phones.selectedBrands.length > 0) {
-        phoneToShow = phones.selectedBrands
-    } else {
-        phoneToShow = phones.phones
-    }
+	let phoneToShow = []
+
+	if (phones.filteredPhones.length > 0) {
+		// 🔎 приоритет поиска
+		phoneToShow = phones.filteredPhones
+	} else if (phones.filteredByFilters.length > 0) {
+		// ✅ готовый результат по всем фильтрам
+		phoneToShow = phones.filteredByFilters
+	} else {
+		// 🔄 fallback — все товары
+		phoneToShow = phones.phones
+	}
+
+	const filtersActive =
+		(phones.selectedBrands?.length ?? 0) ||
+		(phones.selectedScreenType?.length ?? 0) ||
+		(phones.selectedMemory?.length ?? 0)
+	const noMatches =
+		filtersActive &&
+		phones.filteredByFilters.length === 0 &&
+		phones.filteredPhones.length === 0
+	if (noMatches) {
+		return <p style={{padding:'20px',fontSize:'32px',color:'#555',textAlign:'center'}}>Нет совпадений</p>
+	}
+	console.log(phones.filteredByFilters)
 
 	return phoneToShow.map(item => <ProductCard key={item.id} product={item} />)
 }

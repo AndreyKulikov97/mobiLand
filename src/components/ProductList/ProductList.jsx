@@ -7,15 +7,29 @@ import ProductListCard from './ProductListCard'
 
 function ProductList() {
 
-	const { phones, status, filteredPhones, selectedBrands } = useSelector(store => store.products)
-
+	const {
+		phones,
+		status,
+		filteredPhones,
+		selectedBrands,
+		selectedScreenType,
+		filteredByFilters,
+	} = useSelector(store => store.products)
   
   return (
 		<div className='product-card-wrapper'>
 			{status === 'loading' ? (
 				<LoadProductList />
 			) : Array.isArray(phones) ? (
-				<ProductListCard phones={{ phones, filteredPhones, selectedBrands }} />
+				<ProductListCard
+					phones={{
+						phones,
+						filteredPhones,
+						selectedBrands,
+						selectedScreenType,
+						filteredByFilters
+					}}
+				/>
 			) : (
 				<p>Ошибка: в ближайшее время исправим</p>
 			)}
