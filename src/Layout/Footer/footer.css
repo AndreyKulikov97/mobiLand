@@ -1,68 +1,155 @@
 footer {
     width: 100%;
-    background-color:rgb(235, 245, 255);
-    padding: 40px;
-    
+    background-color: rgb(235, 245, 255);
+    padding: 0 12px 20px;
 }
+
 .footer__hrefs {
     display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	gap: 1rem;
-	padding: 2rem;
-    
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 2rem;
 }
+
 .footer__hrefs > div {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
-.footer__hrefs > div > p {
-    color: #454545;
-    font-family: "Inter", sans-serif;
-    font-size: 14px; 
-}
-.footer__hrefs > div > a {
-    color: #454545;
-    text-decoration: none;
-}
-.footer__hrefs > div > a:hover {
-    color: #1a73e8;
-    
-}
+
 .footer__span {
     font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    cursor: pointer;
+    display: inline-flex;           
+    align-items: center;
+    gap: 6px;
+    user-select: none;
+    transition: color 0.3s ease;
 }
+
+.footer__span:hover {
+    color: #1a73e8;
+}
+
+.arrow {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+    font-size: 14px;
+}
+
+.arrow.open {
+    transform: rotate(180deg);
+}
+
+/* выпадающеее меню */
+.footer__dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.footer__dropdown.open {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer__dropdown a {
+    color: #454545;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer__dropdown a:hover {
+    color: #1a73e8;
+}
+
 .logo-web {
-    display:flex;
+    display: flex;
     flex-direction: row;
     gap: 16px;
-    margin-bottom: 40px;
+    margin-top: 8px;
+    margin-bottom: 20px;
 }
+
 .logo-web > a :hover {
     transform: scale(1.1);
-    opacity: .5;
-    transition: .6s;
+    opacity: 0.6;
+    transition: 0.4s;
 }
+
 .logo-soc-web {
     width: 32px;
-    
 }
+
 .footer-line {
     width: 95%;
     height: 1px;
     background-color: #868686;
-    margin:0 40px;
+    margin: 0 40px;
 }
+
 .footer-line-after {
-    margin:0 40px;
+    margin: 0 40px;
     padding-top: 16px;
-    color:#454545;
+    color: #454545;
 }
+
+@media(max-width: 2560px) {
+    .arrow {
+        display: none;
+    }
+
+    .footer__dropdown {
+        max-height: 500px;
+        opacity: 1;
+    }
+}
+
 @media (max-width: 768px) {
-	.footer__hrefs {
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-	}
+    .footer__hrefs {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .footer__span {
+        font-size: 16px;
+    }
+
+     .arrow {
+        display: block;
+    }
+
+    .footer__dropdown {
+        padding-left: 10px;
+        max-height: 0;
+        opacity: 1;
+    }
+    
+    .footer-line {
+    width: 95%;
+    height: 1px;
+    background-color: #868686;
+    margin: 0 18px;
+    }
+
+    .footer-line-after {
+    margin: 0 18px;
+    padding-top: 16px;
+    color: #454545;
+    }
+}
+
+@media (max-width: 426px) {
+    footer {
+        padding: 0;
+    }
 }

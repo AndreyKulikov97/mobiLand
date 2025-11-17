@@ -126,3 +126,69 @@ button {
     width: 30px;
 	height: 30px;
 }
+
+@media (max-width: 768px) {
+	.main__info {
+		font-size: 12px;
+	}
+
+	.price-buy > p {
+		font-size: 22px;
+	}
+
+	.price-buy > button {
+		padding: 0 10px;
+		height: 30px;
+	}
+
+	.price-buy > button > p {
+		font-size: 14px;
+	}
+
+	.credit > p {
+		font-size: 18px;
+	}
+
+	.credit-btn {
+		font-size: 14px;
+		padding: 0 4px;
+	}
+}	
+
+@media (max-width: 426px) {
+	.main__info {
+		width: 100%;
+	}
+
+	.credit > p {
+		font-size: 16px;
+	}
+
+	.credit-btn {
+		font-size: 13px;
+		padding: 0 4px;
+	}
+}
+
+@media (max-width: 320px) {
+	.main__info-credit {
+		align-items: center;
+		gap: .5rem;
+	}
+
+	.credit, .banks {
+		gap: .5rem;
+		align-items: center;
+	}
+
+	.credit-btn {
+		font-size: 12px;
+		height: 38px;
+		width: 88px;
+	}
+
+	.privat > img, .vostok > img, .pumb > img {
+		width: 20px;
+		height: 20px;
+	}
+}

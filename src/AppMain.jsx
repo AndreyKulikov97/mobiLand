@@ -25,19 +25,18 @@ function AppMain() {
 		<>
 			<BrowserRouter>
 				<ScrollToTop />
-				
-					<Routes>
-						<Route element={<WithLayout />}>
-							<Route path='/' element={<Home />} />
-							<Route path='/phone/:id' element={<Phone />} />
-							<Route path='/basket' element={<Basket />} />
-						</Route>
 
-						<Route element={<WithOutLayout />}>
-							<Route path='*' element={<NotFound />} />
-						</Route>
-					</Routes>
-				
+				<Routes>
+					<Route element={<WithLayout />}>
+						<Route path='/' element={<Home />} />
+						<Route path='/phone/:id' element={<Phone />} />
+						<Route path='/basket' element={<Basket />} />
+					</Route>
+
+					<Route element={<WithOutLayout />}>
+						<Route path='*' element={<NotFound />} />
+					</Route>
+				</Routes>
 			</BrowserRouter>
 		</>
 	)

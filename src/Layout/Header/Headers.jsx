@@ -16,7 +16,7 @@ function Headers() {
 				<FilterSearch />
 				<div className='basket'>
 					<Link to='/basket' className='header__link header__cart'>
-						🛒 Корзина
+						<span>🛒</span> Корзина
 					</Link>
 				</div>
 			</nav>

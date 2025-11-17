@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ArrowLeft from '../../assets/icons/icons8-назад-48.png'
 import './basket.css'
 import { useNavigate } from 'react-router-dom'
@@ -41,6 +41,13 @@ function Basket() {
 			.toLocaleString('uk-UA')
 	}
 
+	useEffect(() => {
+		document.body.classList.add('basket-page')
+		return () => {
+			document.body.classList.remove('basket-page')
+		}
+	}, [])
+
 	return (
 		<section>
 			<div className='basket_top'>
@@ -62,7 +69,7 @@ function Basket() {
 				<div className='basket-left'>
 					<div className='basket-header-del'>
 						<span onClick={() => dispatch(delAllBasketPhone())}>
-							🗑 Видалити все
+							🗑 Удалить все
 						</span>
 					</div>
 					<BasketList />
@@ -71,12 +78,12 @@ function Basket() {
 				{/* Правая колонка */}
 				<div className='basket-right'>
 					<div className='bonus-info'>
-						<span>🔄 Дізнатися ціну з урахуванням бонусів</span>
-						<a href='#'>Увійти ➡</a>
+						<span>🔄 Узнать цену с учетом бонусов</span>
+						<a href='#'>Ввойти ➡</a>
 					</div>
 
 					<div className='summary'>
-						<button className='checkout-btn'>Перейти до оформлення</button>
+						<button className='checkout-btn'>Перейти к оформлению</button>
 						<div className='summary-row'>
 							<span>{getBasketText(basketPhone.length)} на суму </span>
 							<span>
@@ -91,7 +98,7 @@ function Basket() {
 						</div>
 
 						<div className='summary-total'>
-							<b>Загальна сума</b>
+							<b>Общая сума</b>
 							<b>{totalPrice(basketPhone)} ₴</b>
 						</div>
 					</div>

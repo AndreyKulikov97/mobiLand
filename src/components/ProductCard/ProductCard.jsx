@@ -24,7 +24,7 @@ function ProductCard(props) {
 					<div className='product-card__desc'>
 						<ul>
 							<li>
-								<strong>Экран:</strong> {screen.size}, {screen.type},
+								<strong>Экран:</strong> {screen.size}, {screen.type}, 
 								{screen.resolution}, {screen.ppi}ppi, {screen.refreshRate}
 							</li>
 							{camera.modules && (

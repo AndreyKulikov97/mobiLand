@@ -1,29 +1,24 @@
 import React, { useEffect } from 'react'
 import './phone.css'
-// import Сheckmark from '../../assets/icons/icons8-галочка-48.png'
 import Slider from '../../components/Slider/Slider'
 import InfoTop from '../../components/mainInfo/InfoTop'
-// import infoTop from '../../data/infoTop.json'
 import { useDispatch, useSelector } from 'react-redux'
-// import { fetchInfoTop } from '../../Redux/slices/topInfoSlice'
 import { useParams } from 'react-router-dom'
 import { fetchInfoTop, fetchMainInfo, fetchPhones, searchCharacteristics, searchPhoneInState } from '../../Redux/slices/phonesSlice'
 
 function Phone() {
-	const { id } = useParams() // ✅ достаём id из useParams
+	const { id } = useParams()
 	const dispatch = useDispatch()
 
 	const { searchPhone, topInfo, characteristics, mainInfo } =
 		useSelector(store => store.products)
 
 	useEffect(() => {
-		// Сначала загружаем телефоны
 		dispatch(fetchInfoTop())
 		dispatch(fetchMainInfo())
 	}, [dispatch])
 
 	useEffect(() => {
-		// Когда телефоны загружены — ищем по id
 		if (topInfo.length > 0 && id) {
 			dispatch(searchPhoneInState({ id: Number(id) }))
 			dispatch(searchCharacteristics({ id: Number(id)}))

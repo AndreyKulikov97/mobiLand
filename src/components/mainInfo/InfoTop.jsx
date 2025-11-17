@@ -9,7 +9,6 @@ import { useDispatch } from 'react-redux'
 import { addBasketPhone } from '../../Redux/slices/basketSlice'
 
 function InfoTop({ info }) {
-	// if (!info) return null // защита от undefined
 	
 	
 	const dispatch = useDispatch();

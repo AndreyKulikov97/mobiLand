@@ -1,11 +1,22 @@
 .product-card-wrapper {
-  max-width: 900px;
-  width: 900px;
+  flex: 1;
+  width: auto;
+  min-width: 0;
   margin-bottom: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .product-card-wrapper {
+    max-width: 80%;
+  }
 }
 
 @media (max-width: 758px) {
   .product-card-wrapper {
     flex-direction: column;
   }
+}
+
+@media (max-width: 425px) {
+
 }
